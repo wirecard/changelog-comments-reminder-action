@@ -75,7 +75,7 @@ class ChangelogReleaseNotes:
                 is_found = True
 
         if is_found == False:
-            print(colored('Release ' + release_version.get_current_release_version() + ' tag does not exists!', 'red'), file=sys.stderr)
+            print(colored('Release ' + release_version.get_current_release_version() + ' tag does not exists in CHANGELOG.md!', 'red'), file=sys.stderr)
             sys.exit(1)
 
     @staticmethod
@@ -83,7 +83,7 @@ class ChangelogReleaseNotes:
         changelog_release_notes = ChangelogReleaseNotes()
         release_version = ReleaseVersion()
         if changelog_release_notes.get_current_release_notes() == changelog_release_notes.get_last_release_notes():
-            print(colored('Release ' + release_version.get_current_release_version() + ' tag exists, but the release candidate notes are the same as for the previous release!!', 'red'), file=sys.stderr)
+            print(colored('Release ' + release_version.get_current_release_version() + ' tag exists in CHANGELOG.md, but the release candidate notes are the same as for the previous release!!', 'red'), file=sys.stderr)
             sys.exit(1)
 
     @staticmethod
@@ -91,7 +91,7 @@ class ChangelogReleaseNotes:
         changelog_release_notes = ChangelogReleaseNotes()
         release_version = ReleaseVersion()
         if not changelog_release_notes.get_current_release_notes():
-            print(colored('Release ' + release_version.get_current_release_version() + ' tag exists, but the release candidate notes are the empty!', 'red'), file=sys.stderr)
+            print(colored('Release ' + release_version.get_current_release_version() + ' tag exists in CHANGELOG.md, but the release candidate notes are the empty!', 'red'), file=sys.stderr)
             sys.exit(1)
 
     @staticmethod
@@ -99,7 +99,7 @@ class ChangelogReleaseNotes:
         changelog_release_notes = ChangelogReleaseNotes()
         release_version = ReleaseVersion()
         if not all(release_note.startswith('*') for release_note in changelog_release_notes.get_current_release_notes()):
-            print(colored('Release ' + release_version.get_current_release_version() + ' tag exists, the release candidate notes exists, but the format is wrong!', 'red'), file=sys.stderr)
+            print(colored('Release ' + release_version.get_current_release_version() + ' tag exists CHANGELOG.md, the release candidate notes exists, but the format is wrong!', 'red'), file=sys.stderr)
             sys.exit(1)
 
     @staticmethod
